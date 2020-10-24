@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using MinhasContas.Data;
 
 namespace MinhasContas
 {
@@ -24,6 +26,8 @@ namespace MinhasContas
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<RegisterContext>(options => options.UseSqlServer(Configuration.GetConnectionString("RegisterContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

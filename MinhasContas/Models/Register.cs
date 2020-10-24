@@ -17,6 +17,10 @@ namespace MinhasContas.Models
             PayData = payData;
         }
 
+        public Register()
+        {
+        }
+
         public int ID { get; set; }
         public string Description { get; set; }
         public string Title { get; set; }
